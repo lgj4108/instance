@@ -11,7 +11,7 @@ public class InstanceEnumServiceOneSingleton implements InstanceEnumService {
 
     @Override
     public void showLog(String message) {
-        log.info("singleton one: {}", message);
+        log.info("service two message: {}, {}", message, sum);
     }
 
     private InstanceEnumServiceOneSingleton() {
@@ -20,10 +20,15 @@ public class InstanceEnumServiceOneSingleton implements InstanceEnumService {
 
     public static InstanceEnumServiceOneSingleton getInstance() {
         if(Objects.isNull(instance)) {
-            synchronized (InstanceEnumServiceOneSingleton.class) {
-                instance = new InstanceEnumServiceOneSingleton();
-            }
+            instance = new InstanceEnumServiceOneSingleton();
         }
         return instance;
+    }
+
+    private int sum = 1;
+
+    public void addNum(int num) {
+        sum = sum + num;
+        log.info("service one sum: {}", sum);
     }
 }

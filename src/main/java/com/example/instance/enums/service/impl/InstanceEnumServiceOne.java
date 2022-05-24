@@ -8,6 +8,13 @@ public class InstanceEnumServiceOne implements InstanceEnumService {
 
     @Override
     public void showLog(String message) {
-        log.info("service one message: {}", message);
+        log.info("service two message: {}, {}", message, sum);
+    }
+
+    private int sum = 1;
+
+    public void addNum(int num) {
+        sum = sum + num;
+        log.info("service one sum: {}", sum);
     }
 }

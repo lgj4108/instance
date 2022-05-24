@@ -39,5 +39,33 @@ class InstanceApplicationTests {
         log.info("instance function: {}", CreateInstanceEnum.getService4th("one"));
         log.info("instance function: {}", CreateInstanceEnum.getService4th("two"));
         log.info("instance function: {}", CreateInstanceEnum.getService4th("two"));
+
+        CreateInstanceEnum.getService("one").showLog("one 1th start");
+        CreateInstanceEnum.getService("one").addNum(1);
+        CreateInstanceEnum.getService("one").showLog("one 1th end");
+        CreateInstanceEnum.getService("two").showLog("two 1th start");
+        CreateInstanceEnum.getService("two").addNum(2);
+        CreateInstanceEnum.getService("two").showLog("two 1th end");
+
+        CreateInstanceEnum.getService2th("one").showLog("one 1th start");
+        CreateInstanceEnum.getService2th("one").addNum(1);
+        CreateInstanceEnum.getService2th("one").showLog("one 1th end");
+        CreateInstanceEnum.getService2th("two").showLog("two 1th start");
+        CreateInstanceEnum.getService2th("two").addNum(2);
+        CreateInstanceEnum.getService2th("two").showLog("two 1th end");
+
+        CreateInstanceEnum.getService3th("one").showLog("one 1th start");
+        CreateInstanceEnum.getService3th("one").addNum(1);
+        CreateInstanceEnum.getService3th("one").showLog("one 1th end");
+        CreateInstanceEnum.getService3th("two").showLog("two 1th start");
+        CreateInstanceEnum.getService3th("two").addNum(2);
+        CreateInstanceEnum.getService3th("two").showLog("two 1th end");
+
+        CreateInstanceEnum.getService4th("one").showLog("one 1th start");
+        CreateInstanceEnum.getService4th("one").addNum(1);
+        CreateInstanceEnum.getService4th("one").showLog("one 1th end");
+        CreateInstanceEnum.getService4th("two").showLog("two 1th start");
+        CreateInstanceEnum.getService4th("two").addNum(2);
+        CreateInstanceEnum.getService4th("two").showLog("two 1th end");
     }
 }
