@@ -14,6 +14,9 @@ public class InjectBeanInstanct {
 
         injectService.injected();
 
+        SingletonInstance.getInstance().setText1("test" + param);
+        SingletonInstance.getInstance().sysout("start");
+
         System.out.println("end");
     }
 }
