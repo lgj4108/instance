@@ -16,6 +16,10 @@ class InstanceApplicationTests {
         injectBeanInstanct.testInject("test");
         injectBeanInstanct.testInject("test1111");
 
+        InjectBeanInstanct injectBeanInstanctSecond = new InjectBeanInstanct();
+        injectBeanInstanctSecond.testInject("test22");
+        injectBeanInstanctSecond.testInject("test22222");
+
     }
 
     @Test

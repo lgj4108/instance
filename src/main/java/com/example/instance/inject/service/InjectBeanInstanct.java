@@ -1,22 +1,34 @@
 package com.example.instance.inject.service;
 
 import com.example.instance.config.ApplicationContextProvider;
+import com.example.instance.config.BeanFactoryProvider;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class InjectBeanInstanct {
-    private InjectService injectService;
+    private InjectService injectApplicationContextService;
+    private InjectService injectBeanFactoryService;
 
     public InjectBeanInstanct() {
-        this.injectService = ApplicationContextProvider.getBean(InjectService.class);
+        this.injectApplicationContextService = ApplicationContextProvider.getBean(InjectService.class);
+        this.injectBeanFactoryService = BeanFactoryProvider.getBean(InjectService.class);
     }
 
     public void testInject(String param) {
-        System.out.println("start");
+        log.info("start");
 
-        injectService.injected();
+        InjectService innerInjectBeanFactoryService = BeanFactoryProvider.getBean(InjectService.class);
+
+        log.info("injectApplicationContextService :: {}", injectApplicationContextService);
+        log.info("injectBeanFactoryService :: {}", injectBeanFactoryService);
+        log.info("innerInjectBeanFactoryService :: {}", innerInjectBeanFactoryService);
+
+        injectApplicationContextService.injected();
+        injectBeanFactoryService.injected();
 
         SingletonInstance.getInstance().setText1("test" + param);
         SingletonInstance.getInstance().sysout("start");
 
-        System.out.println("end");
+        log.info("end");
     }
 }
