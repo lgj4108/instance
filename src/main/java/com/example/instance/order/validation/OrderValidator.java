@@ -7,10 +7,18 @@ import java.util.Arrays;
 import java.util.function.Predicate;
 
 public enum OrderValidator implements Predicate<OrderValidationDto> {
-    FO_GENERAL("FO","general", OrderProductValidator.aaa.and(OrderProductValidator.aaa)),
-    BO_GENERAL("BO", "general", OrderProductValidator.aaa.and(OrderProductValidator.aaa)),
-    FO_ECOUPON("FO", "ecoupon", OrderProductValidator.aaa.and(OrderProductValidator.aaa)),
-    BO_ECOUPON("BO", "ecoupon", OrderProductValidator.aaa.and(OrderProductValidator.aaa)),
+    FO_GENERAL("FO","general", OrderCommonValidator.commonValidator
+            .and(OrderProductValidator.aaa)),
+    BO_GENERAL("BO", "general", OrderCommonValidator.commonValidator
+            .and(OrderProductValidator.aaa)
+            .and(OrderSystemValidator.isAbleBoOrder)),
+    FO_ECOUPON("FO", "ecoupon", OrderCommonValidator.commonValidator
+            .and(OrderProductValidator.aaa)
+            .and(OrderTypeValidator.isAbleEcouponOrder)),
+    BO_ECOUPON("BO", "ecoupon", OrderCommonValidator.commonValidator
+            .and(OrderProductValidator.aaa)
+            .and(OrderTypeValidator.isAbleEcouponOrder)
+            .and(OrderSystemValidator.isAbleBoOrder)),
     ;
 
     private String systemType;
